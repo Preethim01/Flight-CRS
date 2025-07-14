@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "flightName": "IndiGo Express",
+    "origin": "BLR",
+    "destination": "DEL",
+    "duration": 145
+  },
+  {
+    "id": 2,
+    "flightName": "IndiGo Express",
+    "origin": "BLRghkj",
+    "destination": "DEL",
+    "duration": 145
+  },
+  {
+    "id": 1,
+    "airportCode": "BLRyy",
+    "airportName": "Kempegowda International Airport"
+  }
+]

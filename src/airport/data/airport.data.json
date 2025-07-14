@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "airportCode": "BLR",
+    "airportName": "Kempegowda International Airport"
+  },
+  {
+    "id": 3,
+    "airportCode": "blrr",
+    "airportName": "Kempegowda International Airport"
+  },
+  {
+    "id": 3,
+    "airportCode": "BLR",
+    "airportName": "Kempegowda International Airport"
+  }
+]
