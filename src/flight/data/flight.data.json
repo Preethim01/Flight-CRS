@@ -1,21 +1,37 @@
 [
   {
     "id": 1,
-    "flightName": "IndiGo Express",
+    "flightName": "IndiGo 6E-455",
     "origin": "BLR",
     "destination": "DEL",
-    "duration": 145
+    "duration": 165
   },
   {
     "id": 2,
-    "flightName": "IndiGo Express",
-    "origin": "BLRghkj",
+    "flightName": "IndiGo 6E-455",
+    "origin": "BLR",
     "destination": "DEL",
-    "duration": 145
+    "duration": 165
   },
   {
-    "id": 1,
-    "airportCode": "BLRyy",
-    "airportName": "Kempegowda International Airport"
+    "id": 3,
+    "flightName": "Air India AI-101",
+    "origin": "PUN",
+    "destination": "CHI",
+    "duration": 100
+  },
+  {
+    "id": 4,
+    "flightName": "IndiGo 6E-455",
+    "origin": "BLR",
+    "destination": "DEL",
+    "duration": 165
+  },
+  {
+    "id": 5,
+    "flightName": "Emirates AI-101",
+    "origin": "LON",
+    "destination": "IND",
+    "duration": 190
   }
 ]

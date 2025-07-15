@@ -1,6 +1,26 @@
 [
   {
     "id": 1,
-    "name": "Premium Economy"
+    "name": "Second-class"
+  },
+  {
+    "id": 2,
+    "name": "Premium First-class"
+  },
+  {
+    "id": 3,
+    "name": "Premium Economy-class"
+  },
+  {
+    "id": 4,
+    "name": "prem economy class"
+  },
+  {
+    "id": 5,
+    "name": "Business-class"
+  },
+  {
+    "id": 6,
+    "name": "Prem Second-class"
   }
 ]

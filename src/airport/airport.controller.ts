@@ -1,10 +1,8 @@
-import { Controller, Get, Post, Put, Delete, Param, Body , UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { AirportService } from './airport.service';
 import { CreateAirportDto } from './dto/create-airport.dto';
 import { UpdateAirportDto } from './dto/update-airport.dto';
-import { AuthGuard } from '../auth/auth.guard';
 
-@UseGuards(AuthGuard)
 @Controller('airport')
 export class AirportController {
   constructor(private readonly airportService: AirportService) {}
@@ -14,22 +12,23 @@ export class AirportController {
     return this.airportService.getAll();
   }
 
-  @Get(':id')
+  @Get('view/:id')
   getOne(@Param('id') id: string) {
     return this.airportService.getById(+id);
   }
 
-  @Post()
+  @Post('create')
   create(@Body() dto: CreateAirportDto) {
+     console.log('POST /airport/create hit with:', dto);
     return this.airportService.create(dto);
   }
 
-  @Put(':id')
+  @Put('update/:id')
   update(@Param('id') id: string, @Body() dto: UpdateAirportDto) {
     return this.airportService.update(+id, dto);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   delete(@Param('id') id: string) {
     return this.airportService.delete(+id);
   }

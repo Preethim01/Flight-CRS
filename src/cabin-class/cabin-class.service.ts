@@ -58,7 +58,7 @@ export class CabinClassService {
   create(dto: CreateCabinClassDto) {
     const data = this.readData();
 
-    // ✅ Duplicate name check (case-insensitive)
+    // Duplicate name check (case-insensitive)
     const exists = data.find(c => c.name.toLowerCase() === dto.name.toLowerCase());
     if (exists) {
       return { message: 'Cabin class already exists' };
@@ -83,7 +83,6 @@ export class CabinClassService {
       return { message: 'Cabin class not found' };
     }
 
-    // ✅ Prevent updating to a duplicate name
     const duplicate = data.find(
       c => c.name.toLowerCase() === dto.name.toLowerCase() && c.id !== id
     );

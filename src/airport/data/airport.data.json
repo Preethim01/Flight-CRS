@@ -1,17 +1,22 @@
 [
   {
-    "id": 1,
+    "id": 2,
     "airportCode": "BLR",
-    "airportName": "Kempegowda International Airport"
+    "airportName": "Kempegowda Int. Airport (Updated)"
   },
   {
     "id": 3,
-    "airportCode": "blrr",
-    "airportName": "Kempegowda International Airport"
+    "airportCode": "BOM",
+    "airportName": "Chhatrapati Shivaji Maharaj International Airport"
   },
   {
-    "id": 3,
-    "airportCode": "BLR",
-    "airportName": "Kempegowda International Airport"
+    "id": 4,
+    "airportCode": "COK",
+    "airportName": "Cochin International Airport"
+  },
+  {
+    "id": 5,
+    "airportCode": "PNQ",
+    "airportName": "Pune Airport"
   }
 ]

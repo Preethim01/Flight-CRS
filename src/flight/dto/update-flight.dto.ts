@@ -16,6 +16,6 @@ export class UpdateFlightDto {
   destination?: string;
 
   @IsOptional()
-  @IsNumber()
+  @IsNumber({}, { message: 'Duration must be a number' })
   duration?: number;
 }

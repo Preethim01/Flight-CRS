@@ -4,7 +4,7 @@ import * as path from 'path';
 import { CreateFlightDto } from './dto/create-flight.dto';
 import { UpdateFlightDto } from './dto/update-flight.dto';
 
-const dataFilePath = path.join(process.cwd(),'src','flight','data', 'flight.data.json');
+const dataFilePath = path.join(process.cwd(), 'src', 'flight', 'data', 'flight.data.json');
 
 @Injectable()
 export class FlightService {
@@ -29,7 +29,7 @@ export class FlightService {
     fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
   }
 
-  getAll() {
+  get() {
     return this.readData();
   }
 
@@ -39,7 +39,10 @@ export class FlightService {
 
   create(dto: CreateFlightDto) {
     const data = this.readData();
-    const newFlight = { id: data.length + 1, ...dto };
+    const newFlight = {
+      id: data.length > 0 ? data[data.length - 1].id + 1 : 1,
+      ...dto,
+    };
     data.push(newFlight);
     this.writeData(data);
     return newFlight;
@@ -47,13 +50,21 @@ export class FlightService {
 
   update(id: number, dto: UpdateFlightDto) {
     const data = this.readData();
-    const flight = data.find(f => f.id === id);
-    if (flight) {
-      Object.assign(flight, dto);
-      this.writeData(data);
-      return flight;
+    const index = data.findIndex(f => f.id === id);
+
+    if (index === -1) {
+      return { message: 'Flight not found' };
     }
-    return { message: 'Flight not found' };
+
+    const updatedFlight = {
+      ...data[index],  // existing data
+      ...dto           // overwrite with new values
+    };
+
+    data[index] = updatedFlight;
+    this.writeData(data);
+
+    return updatedFlight;
   }
 
   delete(id: number) {
