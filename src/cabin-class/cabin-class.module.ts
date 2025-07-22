@@ -1,4 +1,3 @@
-// src/cabin-class/cabin-class.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CabinClass } from './cabin-class.entity';

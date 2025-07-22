@@ -1,4 +1,3 @@
-// src/flight/dto/create-flight.dto.ts
 import { IsString, IsDateString } from 'class-validator';
 
 export class CreateFlightDto {
@@ -12,5 +11,5 @@ export class CreateFlightDto {
   destination: string;
 
   @IsDateString()
-  departureTime: string;
+  departureTime: Date;
 }

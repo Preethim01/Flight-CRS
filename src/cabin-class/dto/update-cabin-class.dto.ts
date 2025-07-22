@@ -1,4 +1,3 @@
-// update-cabin-class.dto.ts
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateCabinClassDto } from './create-cabin-class.dto';
 

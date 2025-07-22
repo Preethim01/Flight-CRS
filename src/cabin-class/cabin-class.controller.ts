@@ -1,5 +1,4 @@
-// src/cabin-class/cabin-class.controller.ts
-import { Controller, Get, Post, Param, Body, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { CabinClassService } from './cabin-class.service';
 import { CreateCabinClassDto } from './dto/create-cabin-class.dto';
 import { UpdateCabinClassDto } from './dto/update-cabin-class.dto';

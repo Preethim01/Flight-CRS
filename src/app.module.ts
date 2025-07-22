@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FlightModule } from './flight/flight.module';
 import { AirportModule } from './airport/airport.module';
 import { CabinClassModule } from './cabin-class/cabin-class.module';
+import { FlightModule } from './flight/flight.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -11,15 +11,16 @@ import { AuthModule } from './auth/auth.module';
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'root', 
-      password: 'admin@123', 
+      username: 'root',
+      password: 'admin@123',
       database: 'airline',
-      autoLoadEntities: true,
-      synchronize: true, 
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+      logging: true, // <--- This is important to see queries in logs
     }),
-    FlightModule,
     AirportModule,
     CabinClassModule,
+    FlightModule,
     AuthModule,
   ],
 })

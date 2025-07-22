@@ -1,4 +1,3 @@
-// src/flight/dto/update-flight.dto.ts
 import { IsOptional, IsString, IsDateString } from 'class-validator';
 
 export class UpdateFlightDto {

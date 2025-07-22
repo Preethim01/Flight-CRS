@@ -1,4 +1,3 @@
-// src/cabin-class/cabin-class.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -36,8 +35,6 @@ export class CabinClassService {
 
   async delete(id: number) {
     const result = await this.cabinRepo.delete(id);
-    return result.affected
-      ? { message: 'Deleted successfully' }
-      : { message: 'Cabin class not found' };
+    return result.affected ? { message: 'Deleted successfully' } : { message: 'Cabin class not found' };
   }
 }

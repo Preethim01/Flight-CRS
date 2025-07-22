@@ -35,8 +35,6 @@ export class FlightService {
 
   async delete(id: number) {
     const result = await this.flightRepo.delete(id);
-    return result.affected
-      ? { message: 'Deleted successfully' }
-      : { message: 'Flight not found' };
+    return result.affected ? { message: 'Deleted successfully' } : { message: 'Flight not found' };
   }
 }

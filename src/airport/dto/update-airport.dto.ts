@@ -5,8 +5,6 @@ export class UpdateAirportDto {
   airportName: string;
 
   @IsString()
-  @Matches(/^[A-Z]{3}$/, {
-    message: 'Airport code must be exactly 3 uppercase letters',
-  })
+  @Matches(/^[A-Z]{3}$/, { message: 'Airport code must be exactly 3 uppercase letters' })
   airportCode: string;
 }

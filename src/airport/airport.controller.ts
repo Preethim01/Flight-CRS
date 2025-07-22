@@ -19,7 +19,6 @@ export class AirportController {
 
   @Post('create')
   create(@Body() dto: CreateAirportDto) {
-     console.log('POST /airport/create hit with:', dto);
     return this.airportService.create(dto);
   }
 

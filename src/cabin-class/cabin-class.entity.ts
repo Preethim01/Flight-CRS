@@ -1,4 +1,3 @@
-// src/cabin-class/cabin-class.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
@@ -9,4 +8,3 @@ export class CabinClass {
   @Column({ unique: true })
   name: string;
 }
-                    
