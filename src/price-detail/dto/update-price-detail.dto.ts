@@ -1,25 +1,4 @@
-import { IsOptional, IsNumber } from 'class-validator';
+import { PartialType } from '@nestjs/mapped-types';
+import { CreatePriceDetailDto } from './create-price-detail.dto';
 
-export class UpdatePriceDetailDto {
-  @IsOptional()
-  startDate?: string;
-
-  @IsOptional()
-  endDate?: string;
-
-  @IsOptional()
-  @IsNumber()
-  adultFare?: number;
-
-  @IsOptional()
-  @IsNumber()
-  childFare?: number;
-
-  @IsOptional()
-  @IsNumber()
-  infantFare?: number;
-
-  @IsOptional()
-  @IsNumber()
-  tax?: number;
-}
+export class UpdatePriceDetailDto extends PartialType(CreatePriceDetailDto) {}

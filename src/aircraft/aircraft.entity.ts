@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { PriceDetail } from 'src/price-detail/price-detail.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class Aircraft {
@@ -7,11 +6,8 @@ export class Aircraft {
   id: number;
 
   @Column({ unique: true })
-  aircraftName: string;
+  name: string;
 
-  @Column()
-  aircraftImage: string;
-
-  @OneToMany(() => PriceDetail, (priceDetail) => priceDetail.aircraft)
-  priceDetails: PriceDetail[];
+  @Column({ nullable: true })
+  image: string;
 }

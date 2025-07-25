@@ -2,8 +2,8 @@ import { IsOptional } from 'class-validator';
 
 export class UpdateAircraftDto {
   @IsOptional()
-  aircraftName?: string;
+  name?: string;
 
   @IsOptional()
-  aircraftImage?: string;
+  image?: string;
 }

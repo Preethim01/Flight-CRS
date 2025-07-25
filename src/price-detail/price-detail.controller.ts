@@ -1,42 +1,18 @@
-import {
-  Controller,
-  Post,
-  Get,
-  Param,
-  Body,
-  Put,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Post, Get, Body } from '@nestjs/common';
 import { PriceDetailService } from './price-detail.service';
 import { CreatePriceDetailDto } from './dto/create-price-detail.dto';
-import { UpdatePriceDetailDto } from './dto/update-price-detail.dto';
 
-@Controller('price-details')
+@Controller('price-detail')
 export class PriceDetailController {
-  constructor(private readonly priceService: PriceDetailService) {}
+  constructor(private readonly priceDetailService: PriceDetailService) {}
 
   @Post('create')
   create(@Body() dto: CreatePriceDetailDto) {
-    return this.priceService.create(dto);
+    return this.priceDetailService.create(dto);
   }
 
-  @Get()
+  @Get('list')
   findAll() {
-    return this.priceService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.priceService.findOne(+id);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: number, @Body() dto: UpdatePriceDetailDto) {
-    return this.priceService.update(+id, dto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.priceService.remove(+id);
+    return this.priceDetailService.findAll();
   }
 }

@@ -6,6 +6,7 @@ import { FlightModule } from './flight/flight.module';
 import { PilotModule } from './pilot/pilot.module';
 import { AircraftModule } from './aircraft/aircraft.module';
 import { PriceDetailModule } from './price-detail/price-detail.module';
+import { MarkupModule } from './markup/markup.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { PriceDetailModule } from './price-detail/price-detail.module';
     PilotModule,
     AircraftModule,
     PriceDetailModule,
+    MarkupModule,
   ],
 })
 export class AppModule {}

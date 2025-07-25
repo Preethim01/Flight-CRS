@@ -1,29 +1,28 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Aircraft } from 'src/aircraft/aircraft.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class PriceDetail {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'date' })
+  @Column()
+  aircraftName: string;
+
+  @Column()
   startDate: Date;
 
-  @Column({ type: 'date' })
+  @Column()
   endDate: Date;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column()
   adultFare: number;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column()
   childFare: number;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column()
   infantFare: number;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column()
   tax: number;
-
-  @ManyToOne(() => Aircraft, (aircraft) => aircraft.priceDetails)
-  aircraft: Aircraft;
 }
