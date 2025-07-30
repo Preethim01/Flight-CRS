@@ -6,8 +6,8 @@ import { AircraftController } from './aircraft.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Aircraft])],
-  providers: [AircraftService],
   controllers: [AircraftController],
-  exports: [TypeOrmModule],
+  providers: [AircraftService],
+  exports: [AircraftService],
 })
 export class AircraftModule {}

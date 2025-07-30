@@ -12,11 +12,13 @@ export class AircraftService {
     private readonly aircraftRepo: Repository<Aircraft>,
   ) {}
 
- create(dto: CreateAircraftDto) {
-  const aircraft = this.aircraftRepo.create(dto);
-  return this.aircraftRepo.save(aircraft);
-}
-
+  create(dto: CreateAircraftDto, image: Express.Multer.File) {
+    const aircraft = this.aircraftRepo.create({
+      aircraftName: dto.aircraftName,
+      aircraftImage: image?.filename || '',
+    });
+    return this.aircraftRepo.save(aircraft);
+  }
 
   findAll() {
     return this.aircraftRepo.find();
@@ -34,11 +36,11 @@ export class AircraftService {
     return this.aircraftRepo.save(aircraft);
   }
 
-  async delete(id: number) {
-    const aircraft = await this.aircraftRepo.findOneBy({ id });
-    if (!aircraft) return { message: 'Aircraft not found' };
+  // async delete(id: number) {
+  //   const aircraft = await this.aircraftRepo.findOneBy({ id });
+  //   if (!aircraft) return { message: 'Aircraft not found' };
 
-    await this.aircraftRepo.remove(aircraft);
-    return { message: 'Aircraft deleted' };
-  }
+  //   await this.aircraftRepo.remove(aircraft);
+  //   return { message: 'Aircraft deleted' };
+  // }
 }

@@ -1,4 +1,5 @@
+
 export class CreateAircraftDto {
-  name: string;
-  image: string;
+  aircraftName: string;
+  aircraftImage: string; 
 }

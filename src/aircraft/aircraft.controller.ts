@@ -1,4 +1,8 @@
-import { Controller, Post, Get, Put, Delete, Param, Body } from '@nestjs/common';
+import {Controller,Post,Get,Put,Delete,Param,Body,UploadedFile,UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
 import { AircraftService } from './aircraft.service';
 import { CreateAircraftDto } from './dto/create-aircraft.dto';
 import { UpdateAircraftDto } from './dto/update-aircraft.dto';
@@ -7,9 +11,23 @@ import { UpdateAircraftDto } from './dto/update-aircraft.dto';
 export class AircraftController {
   constructor(private readonly aircraftService: AircraftService) {}
 
-  @Post()
-  create(@Body() dto: CreateAircraftDto) {
-    return this.aircraftService.create(dto);
+  @Post('create')
+  @UseInterceptors(
+    FileInterceptor('aircraftImage', {
+      storage: diskStorage({
+        destination: './uploads/aircrafts',
+        filename: (req, file, cb) => {
+          const uniqueName = `${Date.now()}${extname(file.originalname)}`;
+          cb(null, uniqueName);
+        },
+      }),
+    }),
+  )
+  create(
+    @Body() dto: CreateAircraftDto,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    return this.aircraftService.create(dto, file);
   }
 
   @Get('list')
@@ -17,18 +35,18 @@ export class AircraftController {
     return this.aircraftService.findAll();
   }
 
-  @Get(':id')
+  @Get('view/:id')
   findOne(@Param('id') id: number) {
-    return this.aircraftService.findOne(+id);
+    return this.aircraftService.findOne(id);
   }
 
-  @Put(':id')
+  @Put('update/:id')
   update(@Param('id') id: number, @Body() dto: UpdateAircraftDto) {
-    return this.aircraftService.update(+id, dto);
+    return this.aircraftService.update(id, dto);
   }
 
   // @Delete(':id')
   // delete(@Param('id') id: number) {
-  //   return this.aircraftService.delete(+id);
+  //   return this.aircraftService.delete(id);
   // }
 }

@@ -1,9 +1,8 @@
 
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-
 @Entity()
-export class Flight {
+export class Fare {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -16,5 +15,21 @@ export class Flight {
   @Column()
   destination: string;
 
+  @Column()
+  date: string;
 
+  @Column()
+  adultFare: number;
+
+  @Column()
+  childFare: number;
+
+  @Column()
+  infantFare: number;
+
+  @Column()
+  tax: number;
+
+  @Column()
+  aircraft: string;
 }

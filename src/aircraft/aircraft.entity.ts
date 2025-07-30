@@ -1,13 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+
 
 @Entity()
 export class Aircraft {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
-  name: string;
+  @Column()
+  aircraftName: string;
 
-  @Column({ nullable: true })
-  image: string;
+  @Column()
+  aircraftImage: string;
+
+  
 }

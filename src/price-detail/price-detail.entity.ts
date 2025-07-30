@@ -5,8 +5,6 @@ export class PriceDetail {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  aircraftName: string;
 
   @Column()
   startDate: Date;

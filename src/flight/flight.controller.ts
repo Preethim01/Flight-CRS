@@ -1,5 +1,3 @@
-// src/flight/flight.controller.ts
-
 import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common';
 import { FlightService } from './flight.service';
 import { CreateFlightDto } from './dto/create-flight.dto';
@@ -10,7 +8,7 @@ export class FlightController {
 
   @Post('create')
   create(@Body() dto: CreateFlightDto) {
-    return this.flightService.create(dto); // ✅ This is the correct line
+    return this.flightService.create(dto); 
   }
 
   @Get('list')

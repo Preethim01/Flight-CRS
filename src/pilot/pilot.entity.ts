@@ -1,4 +1,4 @@
-// src/pilot/pilot.entity.ts
+
 
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 

@@ -1,14 +1,14 @@
-import { Entity,PrimaryGeneratedColumn,Column } from "typeorm";
+
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class Markup{
-    @PrimaryGeneratedColumn()
-    id:number;
-     
-    @Column()
-    type:'fixed'|'percentage';
+export class Markup {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    amount:number;
+  @Column()
+  markupType: 'fixed' | 'percent';
 
+  @Column()
+  amount: number;
 }
