@@ -1,0 +1,97 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Aircraft {
+  aircraftImage: String!
+  aircraftName: String!
+  id: Int!
+}
+
+type Airport {
+  airportCode: String!
+  airportName: String!
+  id: Int!
+}
+
+type CabinClass {
+  id: Int!
+  name: String!
+}
+
+input CreateAircraftDto {
+  aircraftImage: String!
+  aircraftName: String!
+}
+
+input CreateAirportDto {
+  airportCode: String!
+  airportName: String!
+}
+
+input CreateCabinClassDto {
+  name: String!
+}
+
+input CreatePilotDto {
+  licenseExpiry: DateTime!
+  licenseNumber: String!
+  pilotName: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createAircraft(input: CreateAircraftDto!): Aircraft!
+  createAirport(input: CreateAirportDto!): Airport!
+  createCabinClass(input: CreateCabinClassDto!): CabinClass!
+  createPilot(input: CreatePilotDto!): Pilot!
+  deleteAirport(id: Int!): String!
+  deleteCabinClass(id: Int!): Boolean!
+  deletePilot(id: Int!): Boolean!
+  updateAircraft(id: Int!, updateAircraftDto: UpdateAircraftDto!): Aircraft
+  updateAirport(id: Int!, input: UpdateAirportDto!): Airport
+  updateCabinClass(id: Int!, input: UpdateCabinClassDto!): CabinClass
+  updatePilot(id: Int!, input: UpdatePilotDto!): Pilot!
+}
+
+type Pilot {
+  id: Int!
+  licenseExpiry: DateTime!
+  licenseNumber: String!
+  pilotName: String!
+}
+
+type Query {
+  aircrafts: [Aircraft!]!
+  airport(id: Int!): Airport
+  airports: [Airport!]!
+  getAircraft(id: Int!): Aircraft
+  getAllPilots: [Pilot!]!
+  getCabinClass(id: Int!): CabinClass
+  getCabinClasses: [CabinClass!]!
+  getPilot(id: Int!): Pilot
+}
+
+input UpdateAircraftDto {
+  aircraftImage: String
+  aircraftName: String
+}
+
+input UpdateAirportDto {
+  airportCode: String!
+  airportName: String!
+}
+
+input UpdateCabinClassDto {
+  name: String!
+}
+
+input UpdatePilotDto {
+  licenseExpiry: DateTime
+  licenseNumber: String
+  pilotName: String
+}

@@ -1,19 +1,22 @@
-import { IsOptional, IsString, IsDateString } from 'class-validator';
+import { InputType, Field, PartialType } from '@nestjs/graphql';
+import { CreateFlightDto } from './create-flight.dto';
+import { IsOptional } from 'class-validator';
 
-export class UpdateFlightDto {
+@InputType()
+export class UpdateFlightDto extends PartialType(CreateFlightDto) {
+  @Field({ nullable: true })
   @IsOptional()
-  @IsString()
   flightNumber?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
-  @IsString()
   origin?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
-  @IsString()
   destination?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
-  @IsDateString()
   departureTime?: Date;
 }
