@@ -1,4 +1,4 @@
-// pilot.resolver.ts
+
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { PilotService } from './pilot.service';
 import { Pilot } from './pilot.entity';

@@ -1,4 +1,3 @@
-// src/pilot/pilot.controller.ts
 
 import { Controller, Post, Get, Put, Delete, Param, Body } from '@nestjs/common';
 import { PilotService } from './pilot.service';

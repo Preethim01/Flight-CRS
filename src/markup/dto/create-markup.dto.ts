@@ -1,9 +1,14 @@
-import {  IsEnum, IsNumber} from "class-validator";
 
-export class CreateMarkupDto{
-    @IsEnum(['fixed','percent'])
-    type:'fixed'|'percent'
+import { IsEnum, IsNumber } from 'class-validator';
+import { InputType, Field } from '@nestjs/graphql';
+import { MarkupType } from '../markup.entity'; 
 
-    @IsNumber()
-    amount:number;
+@InputType()
+export class CreateMarkupDto {
+  @Field(() => MarkupType)
+  markupType: MarkupType;
+
+  @Field()
+  @IsNumber()
+  amount: number;
 }
